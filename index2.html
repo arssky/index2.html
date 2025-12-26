@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dari Arsil!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #ff9a9e, #fad0c4);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      overflow: hidden;
+      color: #fff;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 0.2em;
+      text-shadow: 2px 2px 5px #000;
+      animation: pop 1s ease-in-out infinite alternate;
+    }
+
+    p {
+      font-size: 1.5em;
+      margin-bottom: 2em;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.1); }
+    }
+
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #fff;
+      opacity: 0.7;
+      top: 0;
+      animation: fall 5s linear infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(360deg); }
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #ff6f91;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      color: white;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #ff3f6f;
+    }
+  </style>
+</head>
+<body>
+  <h1>HAE [AULIA RENSI NURAINI]!</h1>
+  <p>DI BACA YA PESAN DI BAWAH INI 😁✌️
+    happy birthday cantiiiiiiii iiiii gaaa kerasaaa yaaaaaa kamuuuu udahh tambah tuaaa aja hihihihi... cumannn mauu ngucapin happy birthday yaaaaaa.....semoga panjang umur sehat selalu patuh samaaa orang tuaaaaaaa pokokkk nyaaa doaa yanggg terbaik dehhh buattt kamuuuu.. sekarang kamuuuu udahhhhh bertambahh umurrr nyaaa berarrtiii apaaa? yaaa kamuu harussssss lebihhh dekattt kann diriii kamuuuuu kepadaaa allah oteyyy karnaaa kamuuu bukannn anakkk kecill lagiiiiii yaaaaaaa sayanggggggg... akuuu cumannn bisaaa ngucapinnn iniiii keee kamuuu maapp akuuuu gaaa bisaaa kasiii apaaa apaaa samaa kamuu maapp yahhhh pokokk nyaaa sekaliii lagii hbd sayanggg lopyuuuuuuuu banyakkk banyakkkk ❤️ -©DARI ARSIL YANG BAIK HATI😎</p>
+  <button onclick="playMusic()">Putar Musik 🎵</button>
+
+  <audio id="birthdayMusic" src="https://files.catbox.moe/t0c88x.mp3" loop></audio>
+
+  <script>
+    // Kembang api/confetti
+    for(let i=0; i<100; i++){
+      const confetti = document.createElement('div');
+      confetti.classList.add('confetti');
+      confetti.style.left = Math.random() * 100 + 'vw';
+      confetti.style.animationDuration = (Math.random()*3 + 2) + 's';
+      confetti.style.backgroundColor = `hsl(${Math.random()*360}, 100%, 75%)`;
+      document.body.appendChild(confetti);
+    }
+
+    // Fungsi play musik
+    function playMusic() {
+      const music = document.getElementById('birthdayMusic');
+      music.play();
+    }
+
+    // Coba autoplay musik (beberapa browser perlu interaksi user)
+    window.addEventListener('load', () => {
+      const music = document.getElementById('birthdayMusic');
+      music.play().catch(() => {
+        console.log("Autoplay diblok, tekan tombol 'Putar Musik 🎵'");
+      });
+    });
+  </script>
+</body>
+</html>
